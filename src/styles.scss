@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~normalize.css";
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+@import "../src/assets/styles/shared.scss";
+
+html {
+  &.is-pc {
+    font-size: $font-size-base-pc;
+  }
+  &.is-tablet {
+    font-size: $font-size-base-tablet;
+  }
+  &.is-phone {
+    font-size: $font-size-base-phone;
+  }
+}
+
+body {
+  position: relative;
+  font-size: 1.4rem;
+  font-family: $font-roboto-family;
+  background-color: $color-base-white;
+  overflow-x: hidden;
+}
+
+.swiper-slide {
+  box-sizing: border-box;
+  padding: 4px;
+}

@@ -1,0 +1,13 @@
+<picture
+  class="responsive-picture"
+  [ngClass]="{ 'with-border': withBorder }"
+>
+  <img
+    class="responsive-picture-img"
+    [src]="imageData.src"
+    [alt]="imageData.alt"
+  >
+  <ng-container *ngFor="let set of imageData.srcSet">
+    <source [media]="set.media" [srcset]="set.src">
+  </ng-container>
+</picture>

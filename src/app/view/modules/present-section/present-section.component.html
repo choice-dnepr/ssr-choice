@@ -1,0 +1,18 @@
+<section class="present-sections">
+  <div class="present-sections-left">
+    <responsive-image
+      [imageData]="mainPhoto"
+      [withBorder]="true"
+    >
+    </responsive-image>
+    <div class="photo-set">
+      <mini-smart-photo-swiper [photoSet]="photoSet"></mini-smart-photo-swiper>
+    </div>
+  </div>
+  <div class="present-sections-right">
+    <p class="present-sections-text">{{ mainText }}</p>
+    <choice-btn text="Присоеденяйтесь в команду !"></choice-btn>
+  </div>
+</section>
+
+

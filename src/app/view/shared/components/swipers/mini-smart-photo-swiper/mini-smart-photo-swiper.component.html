@@ -1,0 +1,12 @@
+<swiper
+  [config]="config"
+  (swiper)="onSwiper($event)"
+  (slideChange)="onSlideChange()"
+>
+  <ng-template swiperSlide *ngFor="let slidePhoto of photoSet" class="custom-slide">
+    <responsive-image
+      [imageData]="slidePhoto"
+      [withBorder]="true"
+    ></responsive-image>
+  </ng-template>
+</swiper>
