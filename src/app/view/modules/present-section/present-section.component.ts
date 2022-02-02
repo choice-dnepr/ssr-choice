@@ -11,6 +11,7 @@ export class PresentSectionComponent implements OnInit {
   mainPhoto: SmartImage = {} as SmartImage;
   mainText: string = '';
   photoSet: SmartImage[] = [];
+  public withBorder: boolean = true;
 
   constructor(private readonly presentSectionMock: PresentationMockService) {}
 

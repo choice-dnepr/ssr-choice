@@ -4,8 +4,10 @@
 @import 'swiper/scss/navigation';
 @import 'swiper/scss/pagination';
 @import "../src/assets/styles/shared.scss";
+@import "../src/assets/styles/fonts.scss";
 
 html {
+  font-size: 10px;
   &.is-pc {
     font-size: $font-size-base-pc;
   }
@@ -20,9 +22,18 @@ html {
 body {
   position: relative;
   font-size: 1.4rem;
-  font-family: $font-roboto-family;
-  background-color: $color-base-white;
+  font-family: $font-family-garamond;
+  background-color: $background-color-primary;
   overflow-x: hidden;
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.content-page {
+  width: 90rem;
+  margin: 0 auto;
 }
 
 .swiper-slide {

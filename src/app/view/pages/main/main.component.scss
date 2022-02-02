@@ -1,5 +1,16 @@
+@import "src/assets/styles/shared.scss";
+
 :host {
   .main-page {
-    height: 200vh;
+    &-title {
+      text-align: center;
+      color: $color-primary;
+      font-family: $font-family-garamond;
+      font-size: 7rem;
+      font-weight: 300;
+      font-style: italic;
+      margin: 10rem auto 20rem;
+      white-space: nowrap;
+    }
   }
 }

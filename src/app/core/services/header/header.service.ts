@@ -10,25 +10,16 @@ export class HeaderService {
   constructor() {
     this.headerItems = new BehaviorSubject([
       {
-        name: 'Marta CHOICE'
+        name: 'Магазин'
       },
       {
-        name: 'Магазин'
+        name: 'Сотрудничество'
       },
       {
         name: 'О компании'
       },
       {
         name: 'О продукции'
-      },
-      {
-        name: 'Стать партнером'
-      },
-      {
-        name: 'Команда'
-      },
-      {
-        name: 'Контакты'
       }
     ]);
   }

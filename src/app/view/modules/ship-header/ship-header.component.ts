@@ -8,6 +8,8 @@ import { HeaderService } from '@core/services';
 })
 export class ShipHeaderComponent implements OnInit {
   headerItems: any[] = [];
+  public headerLogo: string = "marta choice";
+  public headerContact: string = "Контакты";
 
   constructor(
     private headerService: HeaderService

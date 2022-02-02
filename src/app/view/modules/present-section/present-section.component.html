@@ -1,17 +1,22 @@
 <section class="present-sections">
-  <div class="present-sections-left">
-    <responsive-image
-      [imageData]="mainPhoto"
-      [withBorder]="true"
-    >
-    </responsive-image>
-    <div class="photo-set">
-      <mini-smart-photo-swiper [photoSet]="photoSet"></mini-smart-photo-swiper>
+  <h1 class="present-sections-title">Marta Shatetskaya</h1>
+  <div class="present-sections-columns">
+    <div class="info-column">Я являюсь ЛИДЕРОМ компании CHOICE.</div>
+    <div class="info-column">
+      <responsive-image
+        [imageData]="mainPhoto"
+        [withBorder]="withBorder">
+      </responsive-image>
+    </div>
+    <div class="info-column">
+      Это украинская компания-производитель экологичных и этичных брендов для всех сфер жизни: красоты, здоровья и дома. 
+      <br><br>
+      Предлагаю начать бизнес в сотрудничестве с компанией CHOICE.
     </div>
   </div>
-  <div class="present-sections-right">
-    <p class="present-sections-text">{{ mainText }}</p>
-    <choice-btn text="Присоеденяйтесь в команду !"></choice-btn>
+  <div class="present-sections-btn">
+    <choice-btn text="Сотрудничать">
+    </choice-btn>
   </div>
 </section>
 

@@ -1,0 +1,12 @@
+@import "src/assets/styles/shared.scss";
+
+
+:host {
+  .section-title {
+    width: 70rem;
+    font-family: $font-family-garamond;
+    font-weight: 300;
+    font-size: 4rem;
+    text-transform: uppercase;
+  }
+}

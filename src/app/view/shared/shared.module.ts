@@ -5,15 +5,22 @@ import { SwiperModule } from 'swiper/angular';
 import {
   ChoiceButtonComponent,
   MiniSmartPhotoSwiperComponent,
-  ResponsiveImageComponent
+  ResponsiveImageComponent,
+  SectionTitleComponent
 } from './components';
+
+import {
+  DesignateDirective
+} from './directives';
 
 
 @NgModule({
   declarations: [
     ResponsiveImageComponent,
     MiniSmartPhotoSwiperComponent,
-    ChoiceButtonComponent
+    ChoiceButtonComponent,
+    SectionTitleComponent,
+    DesignateDirective
   ],
   imports: [
     CommonModule,
@@ -22,7 +29,9 @@ import {
   exports: [
     ResponsiveImageComponent,
     MiniSmartPhotoSwiperComponent,
-    ChoiceButtonComponent
+    ChoiceButtonComponent,
+    SectionTitleComponent,
+    DesignateDirective
   ]
 })
 export class SharedModule {}
