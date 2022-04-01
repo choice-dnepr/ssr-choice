@@ -1,0 +1,20 @@
+<section class="company-brends-section content-page">
+  <section-title [designateWords]="designateWords">
+    БРЕНДЫ CHОICE — ТВОЙ НАСТОЯЩИЙ ВЫБОР ДЛЯ ЭКОСОЗНАННОГО ПОТРЕБЛЕНИЯ
+  </section-title>
+  <div class="brand-rows">
+    <div class="row" *ngFor="let brand of brandRows">
+      <img class="logo" [src]="brand.logo" />
+      <div class="brand">
+        <div class="brand-title">{{ brand.title }}</div>
+        <div class="brand-description">{{ brand.description }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="btn-container">
+    <choice-btn text="Магазин CHOICE">
+    </choice-btn>
+  </div>
+</section>
+
+

@@ -5,6 +5,7 @@ import { SwiperModule } from 'swiper/angular';
 import {
   ChoiceButtonComponent,
   MiniSmartPhotoSwiperComponent,
+  OrderBlockComponent,
   ResponsiveImageComponent,
   SectionTitleComponent
 } from './components';
@@ -20,6 +21,7 @@ import {
     MiniSmartPhotoSwiperComponent,
     ChoiceButtonComponent,
     SectionTitleComponent,
+    OrderBlockComponent,
     DesignateDirective
   ],
   imports: [
@@ -31,6 +33,7 @@ import {
     MiniSmartPhotoSwiperComponent,
     ChoiceButtonComponent,
     SectionTitleComponent,
+    OrderBlockComponent,
     DesignateDirective
   ]
 })

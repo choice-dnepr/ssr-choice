@@ -32,11 +32,18 @@ body {
 }
 
 .content-page {
-  width: 90rem;
+  width: 120rem;
   margin: 0 auto;
 }
 
 .swiper-slide {
   box-sizing: border-box;
   padding: 4px;
+}
+
+.designated-words {
+  color: $color-primary;
+  font-family: $font-family-garamond;
+  font-weight: 300;
+  font-style: italic;
 }

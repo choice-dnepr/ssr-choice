@@ -6,56 +6,32 @@ import { Directive, ElementRef, Input } from '@angular/core';
     selector: '[designate]'
 })
 export class DesignateDirective {
-  private readonly NODE_TEXT_NAME = "#text";
 
-  @Input() designate: string = "";
+  @Input() designate: string = "designated-words";
 
   @Input()
     set designateWords(values: string[]) {
-      const childNodes: NodeList = this.elementRef.nativeElement.childNodes;
-      const designateNodes: any[] = [];
-      const designateWordList: any = {};
-  
-      for (let i = 0; childNodes.length > i; i++) {
-        const node = childNodes[i];
-  
-        if (node.nodeName && node.nodeName === this.NODE_TEXT_NAME) {
-          const isIncluded = values.some(value => node.nodeValue?.includes(value));
-          const spltedValues = node.nodeValue?.split(" ");
-          const designateWord = spltedValues?.find(value => values.includes(value));
-          isIncluded && designateNodes.push(spltedValues);
-          designateWordList[i] = designateWord;
-        } else {
-          designateNodes.push([]);
-          designateWordList[i] = 'none';
-        }
-        // this.elementRef.nativeElement.removeChild(node);
-      }
+      const childText: string = this.elementRef.nativeElement.innerHTML;
+      const startNode = this.elementRef.nativeElement.childNodes;
+      const splitedText = childText?.split(' ');
 
-      const designatedNode = designateNodes.reduce((acc, value, id) => {
-        
-        const valueString = value.length ? value.join(" ") : "";
-        const splittedNodes = valueString.split(designateWordList[id])
-        //.filter((value: string) => !!value);
-        debugger
-        // const span = document.createElement('span');
-        // span.innerText = value;
-        // acc.push(span);
-        return acc;
-      }, [] as any[]);
+      const nodeValues = values.map(value => {
+        const newNode = document.createElement('span');
+        const textNode = document.createTextNode(value + ' ');
+        newNode.appendChild(textNode);
+        newNode.setAttribute('class', 'designated-words');
+        return newNode;
+      });
 
-      // const spanList = values.reduce((acc, value) => {
-      //   const node = document.createElement('span');
-      //   node.innerText = value;
-      //   acc.push(node);
-      //   return acc;
-      // }, [] as any[]);
+    
+      const newSentence = splitedText.map(word => {
+        const newWord = word + ' ';
+        const findedNode = nodeValues.find(node => node.innerHTML === newWord);
+        return findedNode || document.createTextNode(newWord);
+      });
 
-      //document.createTextNode("Hello World");
+      if (this.elementRef.nativeElement && this.elementRef.nativeElement.replaceChildren) this.elementRef.nativeElement.replaceChildren(...newSentence);
     }
      
   constructor(private elementRef: ElementRef) {}
-
-
-  
 }

@@ -1,0 +1,31 @@
+@import "src/assets/styles/shared.scss";
+
+
+:host {
+  .order-block {
+    position: relative;
+    height: 24rem;
+    border: 1px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    padding: 0 3.5rem;
+    text-align: center;
+
+    &-number {
+      position: absolute;
+      font-size: 4rem;
+      font-family: $font-family-garamond;
+      font-style: italic;
+      top: -2%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      padding: 0 1.5rem;
+      z-index: 10;
+      background-color: $background-color-primary;
+    }
+  }
+}

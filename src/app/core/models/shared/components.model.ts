@@ -8,3 +8,14 @@ export interface SmartImageSet {
   media: string;
   src: string;
 }
+
+export interface CompanyAdvantage {
+  order: number;
+  text: string;
+}
+
+export interface BrandRow {
+  title: string;
+  description: string;
+  logo: string;
+}
