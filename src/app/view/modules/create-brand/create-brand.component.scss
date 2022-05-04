@@ -1,0 +1,41 @@
+@import "src/assets/styles/shared.scss";
+
+
+:host {
+  .create-brand-sections {
+    .brand-logo-upload {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 32rem;
+      height: 30rem;
+      border: 2px dashed;
+      border-radius: 1.5rem;
+
+      .brand-image {
+        width: 32rem;
+        height: 30rem;
+        border-radius: 1.5rem;
+        object-fit: cover;
+      }
+
+      .close-icon {
+        display: none;
+        cursor: pointer;
+        font-size: 1.8rem;
+      }
+
+      &.uploaded {
+        position: relative;
+        border: none;
+
+        .close-icon {
+          display: block;
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+        }
+      }
+    }
+  }
+}

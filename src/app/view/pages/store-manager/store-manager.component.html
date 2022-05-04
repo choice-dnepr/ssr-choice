@@ -1,0 +1,15 @@
+<div class="store-manager-page">
+  <div class="store-manager-tabs">
+    <span
+      *ngFor="let item of storeManagerTabs"
+      class="tab"
+      [ngClass]="{'active': item.text === activeTab}"
+      (click)="activateTab(item)"
+    >
+      {{item.text}}
+    </span>
+  </div>
+  <div class="store-manager-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

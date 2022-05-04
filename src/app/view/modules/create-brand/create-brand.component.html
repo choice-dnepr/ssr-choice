@@ -1,0 +1,20 @@
+<section class="create-brand-sections">
+  <div class="brand-logo-upload" [ngClass]="{'uploaded': imageUrl}">
+    <span class="material-icons close-icon">
+      close
+    </span>
+    <file-upload
+      *ngIf="!imageUrl && !uploadImageProgress"
+      (fileUploadEvent)="brandImageUpload($event)">
+    </file-upload>
+
+    <mat-spinner *ngIf="uploadImageProgress"></mat-spinner>
+
+    <img
+      *ngIf="imageUrl && !uploadImageProgress"
+      [src]="imageUrl"
+      alt="brand-image"
+      class="brand-image"
+    >
+  </div>
+</section>

@@ -19,3 +19,9 @@ export interface BrandRow {
   description: string;
   logo: string;
 }
+
+export interface NavigationItem {
+  name: string;
+  path: string;
+  children?: NavigationItem[];
+}

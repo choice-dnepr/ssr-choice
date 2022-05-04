@@ -1,22 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShipHeaderComponent } from './ship-header.component';
+import { StoreComponent } from './store.component';
+import { StorePageRouting } from './store-routing.module';
 import { SharedModule } from '@view/shared/shared.module';
-import { RouterModule } from '@angular/router';
-
 
 
 @NgModule({
   declarations: [
-    ShipHeaderComponent
+    StoreComponent
   ],
   imports: [
     CommonModule,
-    RouterModule,
+    StorePageRouting,
     SharedModule
   ],
-  exports: [
-    ShipHeaderComponent
+  entryComponents: [
+    StoreComponent
   ]
 })
-export class ShipHeaderModule { }
+export class StoreModule { }

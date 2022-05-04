@@ -1,13 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 import { SwiperModule } from 'swiper/angular';
 
 import {
   ChoiceButtonComponent,
   MiniSmartPhotoSwiperComponent,
+  NavigationItemComponent,
   OrderBlockComponent,
   ResponsiveImageComponent,
-  SectionTitleComponent
+  SectionTitleComponent,
+  FileUploadComponent
 } from './components';
 
 import {
@@ -22,11 +26,15 @@ import {
     ChoiceButtonComponent,
     SectionTitleComponent,
     OrderBlockComponent,
-    DesignateDirective
+    DesignateDirective,
+    NavigationItemComponent,
+    FileUploadComponent
   ],
   imports: [
     CommonModule,
-    SwiperModule
+    RouterModule,
+    SwiperModule,
+    MatIconModule
   ],
   exports: [
     ResponsiveImageComponent,
@@ -34,7 +42,9 @@ import {
     ChoiceButtonComponent,
     SectionTitleComponent,
     OrderBlockComponent,
-    DesignateDirective
+    DesignateDirective,
+    NavigationItemComponent,
+    FileUploadComponent
   ]
 })
 export class SharedModule {}

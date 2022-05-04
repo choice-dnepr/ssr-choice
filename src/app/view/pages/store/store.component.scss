@@ -1,0 +1,17 @@
+@import "src/assets/styles/shared.scss";
+
+:host {
+  .main-page {
+    height: 100vh;
+    &-title {
+      text-align: left;
+      color: $color-primary;
+      font-family: $font-family-garamond;
+      font-size: 10rem;
+      font-weight: 300;
+      font-style: italic;
+      margin: 10rem auto 20rem;
+      white-space: nowrap;
+    }
+  }
+}

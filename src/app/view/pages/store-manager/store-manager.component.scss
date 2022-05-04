@@ -1,0 +1,33 @@
+@import "src/assets/styles/shared.scss";
+
+:host {
+  .store-manager-page {
+    min-height: 50vh;
+
+    .store-manager-content {
+      padding: 2rem;
+    }
+    
+    .store-manager-tabs {
+      height: 4rem;
+      width: 100%;
+      padding: 1rem;
+      background-color: rgba(94, 125, 162, .8);
+      color: $color-base-white;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      .tab {
+        padding: 1rem;
+        margin-left: 1rem;
+        cursor: pointer;
+
+        &.active {
+          text-decoration: underline;
+          background-color: $color-primary;
+        }
+      }
+    }
+  }
+}

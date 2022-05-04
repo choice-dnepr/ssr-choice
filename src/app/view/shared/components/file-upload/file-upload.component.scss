@@ -1,0 +1,10 @@
+@import "src/assets/styles/shared.scss";
+
+
+:host {
+  .file-upload-wrapper {
+    .file-input {
+      display: none;
+    }
+  }
+}

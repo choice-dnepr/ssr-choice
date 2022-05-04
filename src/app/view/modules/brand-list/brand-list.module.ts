@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShipHeaderComponent } from './ship-header.component';
 import { SharedModule } from '@view/shared/shared.module';
-import { RouterModule } from '@angular/router';
+import { BrandListComponent } from './brand-list.component';
+import { BrandListRouting } from './brand-list-routing.module';
 
 
 
 @NgModule({
   declarations: [
-    ShipHeaderComponent
+    BrandListComponent
   ],
   imports: [
     CommonModule,
-    RouterModule,
-    SharedModule
+    SharedModule,
+    BrandListRouting
   ],
   exports: [
-    ShipHeaderComponent
+    BrandListComponent
   ]
 })
-export class ShipHeaderModule { }
+export class BrandListModule { }

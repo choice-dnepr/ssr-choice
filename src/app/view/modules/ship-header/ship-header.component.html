@@ -1,7 +1,11 @@
 <header class="header-wrapper">
-  <span class="header-logo">{{headerLogo}}</span>
+  <span class="header-logo" (click)="goHome()">{{headerLogo}}</span>
   <nav class="header-navigation">
-    <div class="header-navigation-item" *ngFor="let item of headerItems">{{item.name}}</div>
+    <navigation-item
+      *ngFor="let item of headerItems"
+      [item]="item"
+    >
+    </navigation-item>
   </nav>
   <span class="header-contact">{{headerContact}}</span>
 </header>

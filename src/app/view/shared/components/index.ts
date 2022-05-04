@@ -3,3 +3,5 @@ export * from './choice-btn/choice-btn.component';
 export * from './swipers/mini-smart-photo-swiper/mini-smart-photo-swiper.component';
 export * from './section-title/section-title.component';
 export * from './order-block/order-block.component';
+export * from './navigation-item/navigation-item.component';
+export * from './file-upload/file-upload.component';

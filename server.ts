@@ -8,30 +8,30 @@ import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
 import { environment } from 'src/environments/environment';
+import { connect } from 'src/server/database/connect';
 
-// The Express app is exported so that it can be used by serverless Functions.
-export function app(): express.Express {
-  const server = express();
+import { BrandRoute } from 'src/server/routes/brand-route';
+
+export async function app(): Promise<express.Express> {
+  const server: express.Express = express();
   const uiFileLocation = environment.production ? 'browser' : 'dist/functions/browser';
   const distFolder = join(process.cwd(), uiFileLocation);
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
-
-  // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
+  const brandRoute = new BrandRoute();
+ 
   server.engine('html', ngExpressEngine({
-    bootstrap: AppServerModule,
+    bootstrap: AppServerModule
   }));
-
   server.set('view engine', 'html');
   server.set('views', distFolder);
 
-  // Example Express Rest API endpoints
-  // server.get('/api/**', (req, res) => { });
-  // Serve static files from /browser
   server.get('*.*', express.static(distFolder, {
     maxAge: '1y'
   }));
 
-  // All regular routes use the Universal engine
+  
+  brandRoute.brandRoute(server);
+
   server.get('*', (req, res) => {
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   });
@@ -42,11 +42,14 @@ export function app(): express.Express {
 function run(): void {
   const port = process.env.PORT || 4000;
 
-  // Start up the Node server
-  const server = app();
-  server.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
-  });
+  const uri = "mongodb+srv://dneprchoice:feli4olo121M@choiceapp.l8z48.mongodb.net/choicedb?retryWrites=true&w=majority";
+  connect(uri)
+    .then(() => app().then((server) => {
+      server.listen(port, () => {
+        console.log(`Node Express server listening on http://localhost:${port}`);
+      });
+    }))
+    .catch(err => console.log(err));
 }
 
 // Webpack will replace 'require' with '__webpack_require__'
