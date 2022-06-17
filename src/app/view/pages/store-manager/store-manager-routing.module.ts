@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CreateBrandComponent } from '@view/modules/create-brand/create-brand.component';
 
 import { StoreManagerComponent } from './store-manager.component';
 

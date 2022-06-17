@@ -1,4 +1,13 @@
 <section class="create-brand-sections">
+
+  <mat-form-field class="brand-name">
+    <mat-label>Имя бренда</mat-label>
+    <input matInput type="text" [(ngModel)]="brandName">
+    <button *ngIf="brandName" matSuffix mat-icon-button aria-label="Clear" (click)="brandName=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
   <div class="brand-logo-upload" [ngClass]="{'uploaded': imageUrl}">
     <span class="material-icons close-icon">
       close

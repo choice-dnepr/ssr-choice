@@ -64,10 +64,20 @@ if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
 
 const MockBrowser = require('mock-browser').mocks.MockBrowser;
 const mock = new MockBrowser();
+const win = mock.getWindow();
+
+Object.defineProperty(win.document.body.style, 'transform', {
+  value: () => {
+    return {
+      enumerable: true,
+      configurable: true
+    };
+  },
+});
 
 global['navigator'] = mock.getNavigator();
 global['document'] = mock.getDocument();
-global['window'] = mock.getWindow();
+global['window'] = win;
 global['location'] = mock.getLocation();
 global['history'] = mock.getHistory();
 global['localStorage'] = mock.getLocalStorage();

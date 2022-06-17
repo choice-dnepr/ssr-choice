@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 })
 export class CreateBrandComponent {
   imageUrl: string = '';
+  brandName: string = '';
   uploadImageProgress = false;
 
   constructor(
