@@ -1,4 +1,5 @@
 import 'zone.js/dist/zone-node';
+import 'zone.js/dist/zone-patch-rxjs';
 
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
@@ -8,16 +9,12 @@ import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
 import { environment } from 'src/environments/environment';
-import { connect } from 'src/server/database/connect';
-
-import { BrandRoute } from 'src/server/routes/brand-route';
 
 export async function app(): Promise<express.Express> {
   const server: express.Express = express();
   const uiFileLocation = environment.production ? 'browser' : 'dist/functions/browser';
   const distFolder = join(process.cwd(), uiFileLocation);
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
-  const brandRoute = new BrandRoute();
  
   server.engine('html', ngExpressEngine({
     bootstrap: AppServerModule
@@ -29,8 +26,7 @@ export async function app(): Promise<express.Express> {
     maxAge: '1y'
   }));
 
-  
-  brandRoute.brandRoute(server);
+
 
   server.get('*', (req, res) => {
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
@@ -41,15 +37,12 @@ export async function app(): Promise<express.Express> {
 
 function run(): void {
   const port = process.env.PORT || 4000;
-
-  const uri = "mongodb+srv://dneprchoice:feli4olo121M@choiceapp.l8z48.mongodb.net/choicedb?retryWrites=true&w=majority";
-  connect(uri)
-    .then(() => app().then((server) => {
-      server.listen(port, () => {
-        console.log(`Node Express server listening on http://localhost:${port}`);
-      });
-    }))
-    .catch(err => console.log(err));
+  app().then(server => {
+    server.listen(port, () => {
+      console.log(`Node Express server listening on http://localhost:${port}`);
+    });
+  });
+  
 }
 
 // Webpack will replace 'require' with '__webpack_require__'

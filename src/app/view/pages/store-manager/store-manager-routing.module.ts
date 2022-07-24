@@ -18,6 +18,10 @@ import { StoreManagerComponent } from './store-manager.component';
         {
           path: 'create-brand',
           loadChildren: () => import('../../modules').then(m => m.CreateBrandModule)
+        },
+        {
+          path: 'create-product',
+          loadChildren: () => import('../../modules').then(m => m.CreateProductModule)
         }]
     }
   ])],

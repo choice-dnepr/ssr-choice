@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { ImagebbResponse } from '@core/models';
 import { StoreManagerService } from '@core/services';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'ship-store-manager',
@@ -19,6 +17,10 @@ export class StoreManagerComponent {
     {
       route: 'brand-list',
       text: 'список брэндов'
+    },
+    {
+      route: 'create-product',
+      text: 'создать продукт'
     }
   ];
   activeTab: string = this.storeManagerTabs[0].text;
@@ -31,15 +33,11 @@ export class StoreManagerComponent {
 
 
   addBrand() {
-    this.storeManager.addBrand();
+  
   }
 
   brandImageUpload(event: File) {
-    this.storeManager.createImageUrl(event)
-      .pipe(map((response: ImagebbResponse) => response['data']['url']))
-      .subscribe(imageUrl => {
-        console.log(imageUrl)
-        this.imageUrl = imageUrl});
+ 
   }
 
   activateTab(item: any) {

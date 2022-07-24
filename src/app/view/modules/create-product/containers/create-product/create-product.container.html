@@ -1,0 +1,34 @@
+<section class="create-product-sections">
+  <div class="sku-container">
+    <div class="sku">ИН: {{productId}}</div>
+    <div class="sku">Код товара: {{productSKU}}</div>
+  </div>
+  <form [formGroup]="productForm" class="product-form" (ngSubmit)="submitProduct()">
+    <mat-form-field class="name field" appearance="fill">
+      <mat-label>Название продукта</mat-label>
+      <input matInput name="name" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field class="description field" appearance="fill">
+      <mat-label>Описание продукта</mat-label>
+      <textarea maxLength="200" matInput name="description" formControlName="description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="price field" appearance="fill">
+      <mat-label>Цена</mat-label>
+      <input type="number" matInput name="price" formControlName="price">
+    </mat-form-field>
+    
+    <mat-form-field class="brand field"  appearance="fill">
+      <mat-label>Выбирите брэнд</mat-label>
+      <mat-select formControlName="brand" name="brand">
+        <mat-option *ngFor="let brand of brands" [value]="brand.value">
+          {{brand.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- <product-img-upload></product-img-upload> -->
+    <button mat-button color="primary">Добавить продукт</button>
+  </form>
+</section>

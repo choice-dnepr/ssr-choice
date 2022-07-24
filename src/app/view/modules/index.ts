@@ -6,3 +6,4 @@ export * from './company-brends-section/company-brends-section.module';
 export * from './company-tools-section/company-tools-section.module';
 export * from './create-brand/create-brand.module';
 export * from './brand-list/brand-list.module';
+export * from './create-product/create-product.module';

@@ -16,6 +16,9 @@ import { ShipHeaderModule } from '@view/modules/ship-header/ship-header.module';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
 
 @NgModule({
@@ -34,7 +37,10 @@ import { StoreModule } from '@ngrx/store';
     MainModule,
     ShipHeaderModule,
     ShipFooterModule,
-    HttpClientModule
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
   bootstrap: [AppComponent]
 })
