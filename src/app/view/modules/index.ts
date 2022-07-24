@@ -7,3 +7,4 @@ export * from './company-tools-section/company-tools-section.module';
 export * from './create-brand/create-brand.module';
 export * from './brand-list/brand-list.module';
 export * from './create-product/create-product.module';
+export * from './global-spinner/global-spinner.module';

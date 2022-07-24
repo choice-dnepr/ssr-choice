@@ -58,5 +58,6 @@ export class CreateProductComponent implements OnInit {
 
   submitProduct() {
     this.storeManagerService.addProduct(this.productForm.value);
+    this.productForm.reset();
   }
 }

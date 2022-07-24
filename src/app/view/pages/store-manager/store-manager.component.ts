@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { StoreManagerService } from '@core/services';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -7,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './store-manager.component.html',
   styleUrls: ['./store-manager.component.scss']
 })
-export class StoreManagerComponent {
+export class StoreManagerComponent implements OnInit {
   imageUrl: string = '';
   storeManagerTabs: any[] = [
     {
@@ -26,22 +25,18 @@ export class StoreManagerComponent {
   activeTab: string = this.storeManagerTabs[0].text;
 
   constructor(
-    private readonly storeManager: StoreManagerService,
     private readonly router: Router,
     private readonly route: ActivatedRoute
   ) {}
 
-
-  addBrand() {
-  
-  }
-
-  brandImageUpload(event: File) {
- 
+  ngOnInit(): void {
+    const url = this.router.url;
+    const childRoute = url.split('/').pop();
+    this.activeTab = childRoute || '';
   }
 
   activateTab(item: any) {
-    this.activeTab = item.text;
+    this.activeTab = item.route;
     this.router.navigate([item.route], { relativeTo: this.route });
   }
 }

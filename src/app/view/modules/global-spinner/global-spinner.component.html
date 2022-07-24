@@ -1,0 +1,7 @@
+<div class="spinner-container" [ngClass]="{ 'active': spinnerActiveState }">
+  <ng-content></ng-content>
+  <div *ngIf="spinnerActiveState" class="lds-ripple">
+    <div></div>
+    <div></div>
+  </div>
+</div>

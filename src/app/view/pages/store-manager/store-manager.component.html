@@ -3,7 +3,7 @@
     <span
       *ngFor="let item of storeManagerTabs"
       class="tab"
-      [ngClass]="{'active': item.text === activeTab}"
+      [ngClass]="{'active': item.route === activeTab}"
       (click)="activateTab(item)"
     >
       {{item.text}}

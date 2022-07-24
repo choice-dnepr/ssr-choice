@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedSettingsService } from '@core/services/shared/shared-settings.service';
 
 @Component({
   selector: 'ship-footer',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShipFooterComponent implements OnInit {
 
-  constructor() {}
+  constructor(private readonly sharedSettings: SharedSettingsService) {}
 
   ngOnInit(): void {
+    this.sharedSettings.switchOFFGlobalSpinner();
   }
-
 }

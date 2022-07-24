@@ -19,6 +19,7 @@ import { StoreModule } from '@ngrx/store';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { GlobalSpinnerModule } from '@view/modules';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     ShipHeaderModule,
     ShipFooterModule,
     HttpClientModule,
+    GlobalSpinnerModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())
