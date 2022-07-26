@@ -19,6 +19,7 @@ import { StoreModule } from '@ngrx/store';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { getStorage, provideStorage } from '@angular/fire/storage'
 import { GlobalSpinnerModule } from '@view/modules';
 
 
@@ -42,7 +43,8 @@ import { GlobalSpinnerModule } from '@view/modules';
     GlobalSpinnerModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage())
   ],
   bootstrap: [AppComponent]
 })

@@ -28,7 +28,14 @@
       </mat-select>
     </mat-form-field>
 
-    <!-- <product-img-upload></product-img-upload> -->
-    <button mat-button color="primary">Добавить продукт</button>
+    <product-img-upload formControlName="pictures">
+    </product-img-upload>
+    <button
+      mat-button
+      class="submit-btn"
+      color="primary"
+      type="submit">
+      Добавить продукт
+    </button>
   </form>
 </section>

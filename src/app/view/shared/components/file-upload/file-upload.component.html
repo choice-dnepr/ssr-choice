@@ -1,15 +1,13 @@
 <div class="file-upload-wrapper">
-
-  <input type="file" class="file-input"
+  <input
+    type="file"
+    class="file-input"
     (change)="onFileSelected($event)" #fileUpload>
-
   <div class="file-upload">
 
-    <!-- {{fileName || "No file uploaded yet."}} -->
-    "No file uploaded yet.
-
-    <button mat-mini-fab color="primary" class="upload-btn"
+    <button type="button" mat-button color="primary" class="upload-btn"
       (click)="fileUpload.click()">
+        Добавить фото
         <mat-icon>attach_file</mat-icon>
     </button>
   </div>

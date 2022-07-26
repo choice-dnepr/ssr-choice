@@ -8,6 +8,14 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'sign-in',
+    loadChildren: () => import('./view/pages').then(m => m.SignInModule)
+  },
+  {
+    path: 'sign-up',
+    loadChildren: () => import('./view/pages').then(m => m.StoreManagerModule)
+  },
+  {
     path: 'store',
     loadChildren: () => import('./view/pages').then(m => m.StoreModule)
   },

@@ -1,4 +1,9 @@
-<div>
+<div class="file-upload-container">
   <file-upload (fileUploadEvent)="fileUpload($event)"></file-upload>
-
+  <div class="preview-container">
+    <div class="preview-container-img" *ngFor="let img of previewImages">
+      <img class="img" [src]="img.url" alt="preview">
+      <span class="cross" (click)="removeUlpoadedImage(img)">&#10006;</span>
+    </div>
+  </div>
 </div>

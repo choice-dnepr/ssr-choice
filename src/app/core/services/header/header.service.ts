@@ -38,7 +38,7 @@ export class HeaderService {
       },
       {
         name: 'О продукции',
-        path: '/home'
+        path: '/store-manager'
       }
     ] as NavigationItem[]);
   }

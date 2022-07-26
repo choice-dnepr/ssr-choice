@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { SwiperModule } from 'swiper/angular';
+import { MatButtonModule } from '@angular/material/button';
 
 import {
   ChoiceButtonComponent,
@@ -34,7 +35,8 @@ import {
     CommonModule,
     RouterModule,
     SwiperModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
   exports: [
     ResponsiveImageComponent,

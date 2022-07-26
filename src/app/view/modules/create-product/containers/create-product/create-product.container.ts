@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { StoreManagerService } from '@core/services';
+import { StoreManagerApiService } from '@core/services/store-manager/store-manager.api.service';
 
 interface Brand {
   value: string;
@@ -17,7 +18,8 @@ export class CreateProductComponent implements OnInit {
   public brands: Brand[];
   
   constructor(
-    private readonly storeManagerService: StoreManagerService
+    private readonly storeManagerService: StoreManagerService,
+    private readonly storeApi: StoreManagerApiService
   ) {
     this.brands = [
       {
@@ -38,6 +40,7 @@ export class CreateProductComponent implements OnInit {
       "price": new FormControl(0, [ Validators.required ]),
       "priceWithDiscount": new FormControl(0, [ Validators.required ]),
       "brand": new FormControl("", [ Validators.required ]),
+      "pictures": new FormControl([] as File[])
     });
   }
 
@@ -46,6 +49,10 @@ export class CreateProductComponent implements OnInit {
     this.productForm.get('id')?.patchValue(1);
     // TODO: add new sku
     this.productForm.get('sku')?.patchValue(423729);
+
+    this.productForm.valueChanges.subscribe(res => {
+      console.log(res)
+    })
   }
 
   get productId(): number {
@@ -57,7 +64,11 @@ export class CreateProductComponent implements OnInit {
   }
 
   submitProduct() {
-    this.storeManagerService.addProduct(this.productForm.value);
-    this.productForm.reset();
+    const file = this.productForm.get('pictures')?.value[0];
+    this.storeApi.uploadImgToStorage(file, 'images/product').subscribe(result => {
+      console.log(result)
+    });
+    // this.storeManagerService.addProduct(this.productForm.value);
+    // this.productForm.reset();
   }
 }

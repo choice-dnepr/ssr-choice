@@ -2,4 +2,53 @@
 
 
 :host {
+  .file-upload-container {
+    .preview-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      &-img {
+        position: relative;
+        width: 10rem;
+        height: 10rem;
+        border-radius: 4px;
+        margin-right: 1rem;
+
+        .img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .cross {
+          position: absolute;
+          visibility: hidden;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: $color-base-white;
+          z-index: 11;
+        }
+      }
+
+      &-img:hover::before {
+        cursor: pointer;
+        position: absolute;
+        content: '';
+        width: 10rem;
+        height: 10rem;
+        border-radius: 4px;
+        top: 0;
+        left: 0;
+        background-color: rgba($color: #000000, $alpha: .3);
+        z-index: 10;
+      }
+
+      &-img:hover .cross {
+        cursor: pointer;
+        visibility: visible;
+      }
+    }
+  }
 }

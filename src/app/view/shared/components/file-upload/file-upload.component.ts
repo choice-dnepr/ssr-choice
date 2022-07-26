@@ -16,8 +16,8 @@ export class FileUploadComponent {
     const input = event.target as HTMLInputElement;
     if (input.files?.length) {
       const file: File = input.files[0];
-
       this.fileUploadEvent.emit(file);
+      input.value = '';
     }
   }
 }
