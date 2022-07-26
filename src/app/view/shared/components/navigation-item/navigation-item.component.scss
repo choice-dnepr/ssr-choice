@@ -4,5 +4,7 @@
 :host {
   .navigation-item {
     text-decoration: none;
+    color: $color-primary;
+    font-weight: bold;
   }
 }

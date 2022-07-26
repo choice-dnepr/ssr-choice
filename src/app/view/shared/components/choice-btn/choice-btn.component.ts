@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 
 @Component({
@@ -9,4 +9,10 @@ import { Component, Input } from '@angular/core';
 export class ChoiceButtonComponent {
 
   @Input() text: string = '';
+  @Input() type: string = 'button';
+  @Output() clickEvent: EventEmitter<void> = new EventEmitter<void>();
+
+  onClick(event: any) {
+    this.clickEvent.emit();
+  }
 }

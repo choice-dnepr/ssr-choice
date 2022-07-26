@@ -11,6 +11,14 @@
     .sign-in-form {
       display: flex;
       flex-direction: column;
+      border: 1px solid rgba($color: $color-primary, $alpha: .5);
+      border-radius: .5rem;
+      padding: 5rem;
+      box-shadow: 10px 10px 5px 0px rgba($color: $color-primary, $alpha: .5);
+
+      .sign-in-field {
+        margin-bottom: 1rem;
+      }
     }
   }
 }
